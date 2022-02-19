@@ -1,12 +1,17 @@
-package main;
-import arrays.Arrays;
+package com.example.main;
+import com.example.arrays.Arrays;
 
 public class Main {
     public static void main(String []args) {
         // 1D DOUBLE array
-        Arrays myVector = new Arrays(new double[]{1, 2, 3, 4});
+        Arrays myVector = new Arrays(new double[]{1, 3, 2, 4});
         double x1 = 3, x2 = 5;
-        myVector.print();
+        // myVector.print();
+        System.out.println("-- Unsorted 1D double array:");
+        Arrays.printVector(myVector);
+        Arrays.selectionSort(myVector);
+        System.out.println("-- Sorted 1D double array:");
+        Arrays.printVector(myVector);
         System.out.printf("Array type: %s\n", myVector.type);
         System.out.printf("Array dim: %d\n", myVector.dimension);
         System.out.printf("Max: %.2f\n", myVector.maxDouble());
@@ -24,7 +29,12 @@ public class Main {
         System.out.println();
         Arrays myArray = new Arrays(new double[][]{{1, 2, 3}, {4, 15, 6}, {7, 8, 9}});
         double x3 = 15, x4 = 10;
-        myArray.print();
+        // myArray.print();
+        System.out.println("-- Unsorted 2D double array:");
+        Arrays.printVector(myArray);
+        Arrays.selectionSort(myArray);
+        System.out.println("-- Sorted 1D double array:");
+        Arrays.printVector(myArray);
         System.out.printf("Array type: %s\n", myArray.type);
         System.out.printf("Array dim: %d\n", myArray.dimension);
         System.out.printf("Max: %.2f\n", myArray.maxDouble());
@@ -44,7 +54,8 @@ public class Main {
                 {{{1, 2, 3},{4, 5, 6}}, {{7, 8, 9}, {10, 11, 12}},
                  {{13, 14, 15}, {16, 17, 18}}, {{19, 20, 21}, {22, 23, 24}}});
         double x5 = 5, x6 = 21;
-        myThreeDArray.print();
+        // myThreeDArray.print();
+        Arrays.printVector(myThreeDArray);
         System.out.printf("Array type: %s\n", myThreeDArray.type);
         System.out.printf("Array dim: %d\n", myThreeDArray.dimension);
         System.out.printf("Max: %.2f\n", myThreeDArray.maxDouble());
