@@ -132,10 +132,10 @@ public class LinearAlgebra extends Arrays {
     }
 
     /**
-     * Function to multiply a 2D double array by a 1D double array
-     * @param a 2D double array
-     * @param b 1D double array
-     * @return 1D double array
+     * Function to multiply a 2D int array by a 1D int array
+     * @param a 2D int array
+     * @param b 1D int array
+     * @return 1D int array
      */
     public static int[] matmul(int[][] a, int[] b) {
         int m = a.length; int n = a[0].length;
