@@ -106,6 +106,54 @@ public class LinearAlgebra extends Arrays {
         }
         return product;
     }
-    //</editor-fold>
 
+    /**
+     * Function to multiply a 2D double array by a 1D double array
+     * @param a 2D double array
+     * @param b 1D double array
+     * @return 1D double array
+     */
+    public static double[] matmul(double[][] a, double[] b) {
+        int m = a.length; int n = a[0].length;
+
+        if (b.length != n) {
+            throw new IllegalArgumentException("Matriks tidak dapat dikalikan. Ukuran matriks tidak sesuai!");
+        }
+
+        double[] product = new double[m];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                product[i] += a[i][j] * b[j];
+            }
+        }
+
+        return product;
+    }
+
+    /**
+     * Function to multiply a 2D double array by a 1D double array
+     * @param a 2D double array
+     * @param b 1D double array
+     * @return 1D double array
+     */
+    public static int[] matmul(int[][] a, int[] b) {
+        int m = a.length; int n = a[0].length;
+
+        if (b.length != n) {
+            throw new IllegalArgumentException("Matriks tidak dapat dikalikan. Ukuran matriks tidak sesuai!");
+        }
+
+        int[] product = new int[m];
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                product[i] += a[i][j] * b[j];
+            }
+        }
+
+        return product;
+    }
+
+    //</editor-fold>
 }
