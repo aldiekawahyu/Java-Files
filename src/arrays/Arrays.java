@@ -23,6 +23,7 @@ public class Arrays {
         this.doubleVector = vector;
         this.dimension = 1;
         this.length = vector.length;
+        this.shape = new int[] {1, vector.length};
         this.numel = vector.length;
 
         Class<? extends double[]> c = this.doubleVector.getClass();
@@ -37,6 +38,7 @@ public class Arrays {
         this.intVector = vector;
         this.dimension = 1;
         this.length = vector.length;
+        this.shape = new int[] {1, vector.length};
         this.numel = vector.length;
 
         Class<? extends int[]> c = this.intVector.getClass();
@@ -158,6 +160,94 @@ public class Arrays {
 
 
     //<editor-fold desc="MIN MAX">
+
+    // MAX
+    public static double max(Arrays array) {
+        String type = array.type;
+        int dimension = array.dimension;
+
+        switch (type.toLowerCase()) {
+            case "double" -> {
+                switch (dimension) {
+                    case 1 -> {
+                        double max = array.doubleVector[0];
+                        for (int i = 0; i < array.shape[1]; i++) {
+                            if (max < array.doubleVector[i]) max = array.doubleVector[i];
+                        }
+                        return max;
+                    }
+
+                    case 2 -> {
+                        double max = array.doubleArray[0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                if (max < array.doubleArray[i][j]) max = array.doubleArray[i][j];
+                            }
+                        }
+                        return max;
+                    }
+
+                    case 3 -> {
+                        double max = array.doubleThreeDArray[0][0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                for (int k = 0; k < array.shape[2]; k++) {
+                                    if (max < array.doubleThreeDArray[k][i][j]) max = array.doubleThreeDArray[k][i][j];
+                                }
+                            }
+                        }
+                        return max;
+                    }
+
+                    default -> {
+                        return 0;
+                    }
+                }
+            }
+
+            case "int" -> {
+                switch (dimension) {
+                    case 1 -> {
+                        int max = array.intVector[0];
+                        for (int i = 0; i < array.shape[1]; i++) {
+                            if (max < array.intVector[i]) max = array.intVector[i];
+                        }
+                        return max;
+                    }
+
+                    case 2 -> {
+                        int max = array.intArray[0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                if (max < array.intArray[i][j]) max = array.intArray[i][j];
+                            }
+                        }
+                        return max;
+                    }
+
+                    case 3 -> {
+                        int max = array.intThreeDArray[0][0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                for (int k = 0; k < array.shape[2]; k++) {
+                                    if (max < array.intThreeDArray[k][i][j]) max = array.intThreeDArray[k][i][j];
+                                }
+                            }
+                        }
+                        return max;
+                    }
+
+                    default -> {
+                        return 0;
+                    }
+                }
+            }
+
+            default -> {
+                return 0;
+            }
+        }
+    }
 
     /**
      * A function to get the maximum or the greatest number of array.
@@ -311,6 +401,94 @@ public class Arrays {
             }
         }
         return max;
+    }
+
+    // MIN
+    public static double min(Arrays array) {
+        String type = array.type;
+        int dimension = array.dimension;
+
+        switch (type.toLowerCase()) {
+            case "double" -> {
+                switch (dimension) {
+                    case 1 -> {
+                        double min = array.doubleVector[0];
+                        for (int i = 0; i < array.shape[1]; i++) {
+                            if (min > array.doubleVector[i]) min = array.doubleVector[i];
+                        }
+                        return min;
+                    }
+
+                    case 2 -> {
+                        double min = array.doubleArray[0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                if (min > array.doubleArray[i][j]) min = array.doubleArray[i][j];
+                            }
+                        }
+                        return min;
+                    }
+
+                    case 3 -> {
+                        double min = array.doubleThreeDArray[0][0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                for (int k = 0; k < array.shape[2]; k++) {
+                                    if (min > array.doubleThreeDArray[k][i][j]) min = array.doubleThreeDArray[k][i][j];
+                                }
+                            }
+                        }
+                        return min;
+                    }
+
+                    default -> {
+                        return 0;
+                    }
+                }
+            }
+
+            case "int" -> {
+                switch (dimension) {
+                    case 1 -> {
+                        int min = array.intVector[0];
+                        for (int i = 0; i < array.shape[1]; i++) {
+                            if (min > array.intVector[i]) min = array.intVector[i];
+                        }
+                        return min;
+                    }
+
+                    case 2 -> {
+                        int min = array.intArray[0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                if (min > array.intArray[i][j]) min = array.intArray[i][j];
+                            }
+                        }
+                        return min;
+                    }
+
+                    case 3 -> {
+                        int min = array.intThreeDArray[0][0][0];
+                        for (int i = 0; i < array.shape[0]; i++) {
+                            for (int j = 0; j < array.shape[1]; j++) {
+                                for (int k = 0; k < array.shape[2]; k++) {
+                                    if (min > array.intThreeDArray[k][i][j]) min = array.intThreeDArray[k][i][j];
+                                }
+                            }
+                        }
+                        return min;
+                    }
+
+                    default -> {
+                        return 0;
+                    }
+                }
+            }
+
+            default -> {
+                return 0;
+            }
+        }
     }
 
     /**
@@ -601,7 +779,7 @@ public class Arrays {
      * Sort 1D double array using selection method
      */
     public void selectionSort() {
-        if (this.type.toLowerCase() == "double") {
+        if (this.type.equalsIgnoreCase("double")) {
             for (int i = 0; i < this.doubleVector.length-1; i++) {
                 // Find the minimum element in unsorted array
                 int minIdx = i;
@@ -613,7 +791,7 @@ public class Arrays {
                 this.doubleVector[minIdx] = this.doubleVector[i];
                 this.doubleVector[i] = temp;
             }
-        } else if (this.type.toLowerCase() == "int") {
+        } else if (this.type.equalsIgnoreCase("int")) {
             for (int i = 0; i < this.intVector.length-1; i++) {
                 // Find the minimum element in unsorted array
                 int minIdx = i;
@@ -1005,6 +1183,90 @@ public class Arrays {
             case "binary" -> binSearch(x);
             default -> -1;
         };
+    }
+    //</editor-fold>
+
+
+    //<editor-fold desc="ROTATING">
+
+    /**
+     * Function to perform left rotate on 1D double array without given range
+     * @param vector 1D double array
+     * @return rotated 1D double array
+     */
+    public static double[] rotateLeft(double[] vector) {
+        return rotateLeft(vector, 1);
+    }
+
+    /**
+     * Function to perform left rotate on 1D double array with given range
+     * @param vector 1D double array
+     * @param n range
+     * @return rotated 1D double array
+     */
+    public static double[] rotateLeft(double[] vector, int n) {
+        int N = vector.length; // Panjang 1D array
+
+        if (N < 1 || n == N) {
+            return vector;
+        }
+
+        if (n > N) {
+            n = n % N;
+        }
+
+        // Membuat array sementara berukuran n
+        double[] temp = new double[n];
+
+        // Menyalin n-elemen pertama ke array temp
+        System.arraycopy(vector, 0, temp, 0, n);
+
+        // Memindahkan elemen sisanya ke indeks nol ke N-n
+        if (N - n >= 0) System.arraycopy(vector, n, vector, 0, N - n);
+
+        // Menyalin array temp ke array asli
+        System.arraycopy(temp, 0, vector, N - n, n);
+        return vector;
+    }
+
+    /**
+     * Function to perform left rotate on 1D int array without given range
+     * @param vector 1D int array
+     * @return rotated 1D int array
+     */
+    public static int[] rotateLeft(int[] vector) {
+        return rotateLeft(vector, 1);
+    }
+
+    /**
+     * Function to perform left rotate on 1D int array with given range
+     * @param vector 1D int array
+     * @param n range
+     * @return rotated 1D int array
+     */
+    public static int[] rotateLeft(int[] vector, int n) {
+        int N = vector.length; // Panjang 1D array
+
+        if (N < 1 || n == N) {
+            return vector;
+        }
+
+        if (n > N) {
+            n = n % N;
+        }
+
+        // Membuat array sementara berukuran n
+        int[] temp = new int[n];
+
+        // Menyalin n-elemen pertama ke array temp
+        System.arraycopy(vector, 0, temp, 0, n);
+
+        // Memindahkan elemen sisanya ke indeks nol ke N-n
+        if (N - n >= 0) System.arraycopy(vector, n, vector, 0, N - n);
+
+        // Menyalin array temp ke array asli
+        System.arraycopy(temp, 0, vector, N - n, n);
+        return vector;
     }
     //</editor-fold>
 
@@ -1417,3 +1679,4 @@ public class Arrays {
     //</editor-fold>
 
 }
+
