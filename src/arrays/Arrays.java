@@ -161,7 +161,13 @@ public class Arrays {
 
     //<editor-fold desc="MIN MAX">
 
-    // MAX
+    //<editor-fold desc="MAX">
+    
+    /**
+     * A function to get the maximum or the greatest number of Arrays object.
+     * @param array Arrays object
+     * @return max A maximum or the greatest number of the Arrays object
+     */
     public static double max(Arrays array) {
         String type = array.type;
         int dimension = array.dimension;
@@ -341,6 +347,36 @@ public class Arrays {
 
     /**
      * A function to get the maximum or the greatest number of array.
+     * @param vector An input 1D double array
+     * @param left Left index of the array
+     * @param right Right index of the array
+     * @return A maximum or the greatest number of the array
+     */
+    public static double max(double[] vector, int left, int right) {
+        if (left == right) return vector[left];
+        int mid = (left + right) / 2;
+        double u = max(vector, left, mid);
+        double v = max(vector,mid+1, right);
+        return Math.max(u, v);
+    }
+
+    /**
+     * A function to get the maximum or the greatest number of array.
+     * @param vector An input 1D int array
+     * @param left Left index of the array
+     * @param right Right index of the array
+     * @return A maximum or the greatest number of the array
+     */
+    public static int max(int[] vector, int left, int right) {
+        if (left == right) return vector[left];
+        int mid = (left + right) / 2;
+        int u = max(vector, left, mid);
+        int v = max(vector,mid+1, right);
+        return Math.max(u, v);
+    }
+
+    /**
+     * A function to get the maximum or the greatest number of array.
      * @param array An input 2D double array
      * @return max A maximum or the greatest number of the array.
      */
@@ -402,8 +438,15 @@ public class Arrays {
         }
         return max;
     }
+    //</editor-fold>
 
-    // MIN
+    //<editor-fold desc="MIN">
+
+    /**
+     * A function to get the minimum or the smallest number of Arrays object.
+     * @param array Arrays object
+     * @return min A minimum or the smallest number of the Arrays object
+     */
     public static double min(Arrays array) {
         String type = array.type;
         int dimension = array.dimension;
@@ -582,6 +625,36 @@ public class Arrays {
     }
 
     /**
+     *  A function to get the minimum or the smallest number of array.
+     * @param vector An input 1D double array
+     * @param left Left index of the array
+     * @param right Right index of the array
+     * @return A minimum or the smallest number of the array
+     */
+    public static double min(double[] vector, int left, int right) {
+        if (right - left == 1) return vector[left];
+        int mid = (left + right) / 2;
+        double u = min(vector, left, mid);
+        double v = min(vector,mid, right);
+        return Math.min(u, v);
+    }
+
+    /**
+     *  A function to get the minimum or the smallest number of array.
+     * @param vector An input 1D int array
+     * @param left Left index of the array
+     * @param right Right index of the array
+     * @return A minimum or the smallest number of the array
+     */
+    public static int min(int[] vector, int left, int right) {
+        if (right - left == 1) return vector[left];
+        int mid = (left + right) / 2;
+        int u = min(vector, left, mid);
+        int v = min(vector,mid, right);
+        return Math.min(u, v);
+    }
+
+    /**
      * A function to get the minimum or the smallest number of array.
      * @param array An input 2D double array
      * @return min A minimum or the smallest number of the array.
@@ -644,6 +717,39 @@ public class Arrays {
         }
         return min;
     }
+    //</editor-fold>
+
+    //</editor-fold>
+
+
+    //<editor-fold desc="SUM">
+
+    /**
+     * Function to calculate the sum of 1D double array
+     * @param vector 1D double array
+     * @return the sum
+     */
+    public static double sum(double[] vector) {
+        double sum = 0;
+        for (double v : vector) {
+            sum = sum + v;
+        }
+        return sum;
+    }
+
+    /**
+     * Function to calculate the sum of 1D int array
+     * @param vector 1D int array
+     * @return the sum
+     */
+    public static int sum(int[] vector) {
+        int sum = 0;
+        for (int j : vector) {
+            sum = sum + j;
+        }
+        return sum;
+    }
+    
     //</editor-fold>
 
 
